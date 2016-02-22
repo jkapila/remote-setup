@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: logging
+# key: lgr
+# --
+logger.${1:$$(yas-choose-value '("debug" "info" "warning" "error" "exception" "critical" "log"))}(\'${2:message}\')

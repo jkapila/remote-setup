@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# finally trying tmux let see how far i can go in this
+
+
+#getting dependences
+
+cowsay "getting and installing libevent ncurses"
+sudo apt-get install libncurses5-dev libncursesw5-dev libevent-dev
+
+#cd dwnls
+#wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
+#tar -xvf libevent-2.0.22-stable.tar.gz
+#cd libevent-2.0.22-stable
+#./configure && make && make verify
+#sudo make install
+
+
+cowsay "Installing tmux 2.1"
+cd dwnls
+wget https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz
+tar -xvf tmux-2.1.tar.gz
+cd tmux-2.1
+sh autogen.sh
+./configure && make
+sudo make install 
+cd
+
+cowsay "setting tmux conf file and tmux plugin manager"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp remote-setup/tmux ~/.tmux.conf
+tmux source ~/.tmux.conf

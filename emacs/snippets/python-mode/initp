@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: initp
+# key: initp
+# --
+_name__ = ${1:general}
+__doc__ = \"${2:general}\"
+__author__ = \'${3:Jitin}\'
+__version__ = \"${4:0.0.1}\"
+__maintainer__ = \"${5:Jitin Kapila}\"
+__status__ = \"${6:Alpha}\"
+__all__ = [\'$0\']

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cowsay "Getting Special Package xgboost for You"
+cd dwnls
+git clone --recursive https://github.com/dmlc/xgboost
+cowsay "Making xgboost package"
+cd xgboost; make -j4
+
+sudo apt-get install python-setuptools python-dev
+cd python-package; sudo python setup.py install
+cowsay "Installed XGboost for Python !"
+
+cd .. && cd R-package
+R CMD install xgb*.tar.gz
+cowsay "Installed Xgboost Externally to R"

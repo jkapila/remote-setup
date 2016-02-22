@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: todo
+# key: todo
+# --
+# todo: ${1:$$(getenv "USER")} ${2:desc} ${3:$$(message (format-time-string "%Y-%m-%d %H:%M:%S"))}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logging
+# key: lgl
+# --
+logger = logging.getLogger("${1:name}")
+logger.setLevel(logging.${2:$$(yas-choose-value '("CRITICAL" "ERROR" "WARNING" "INFO" "DEBUG"))})
+

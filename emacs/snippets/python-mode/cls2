@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cls2
+# group: object oriented
+# --
+class ${1:class}(${2:object}):
+    
+    def __init__(self,${2:args}):
+	$0
+    
+

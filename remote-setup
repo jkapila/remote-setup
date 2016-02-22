@@ -3,7 +3,7 @@
 # my server installation script
 # atleat needs git
 
-echo "Hello Jitin.... Your system is :"
+echo Hello $USER.... Your system is :
 uname -a
  
 echo "Now we start installing all you want!"
@@ -15,84 +15,18 @@ sudo apt-get upgrade
 
 echo "Installing Basic Linux requirements for You !"
 
-sudo apt-get install cowsay gdebi-core
+sudo apt-get install cowsay gdebi-core language-pack-en-base build-essential
+#Just to make sure locale settings are proper
+sudo dpkg-reconfigure locales 
 
-cowsay "Installing Java !"
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install oracle-java8-installer
-
-echo '\n# Adding JAVA_HOME ' >> ~/.bashrc 
-JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))/
-
-echo 'export JAVA_HOME=$JAVA_HOME' >> ~/.bashrc 
-cowsay Java Installed at $JAVA_HOME 
-
-cowsay "Starting Anaconda Python Installation. Please Stay with me !"
 mkdir ~/dwnls
-cd dwnls
-wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.5.0-Linux-x86_64.sh
-bash Anaconda2-2.5.0-Linux-x86_64.sh
 
-cowsay "Updating Anaconda Please stay here !"
-
-conda update conda
-conda update anaconda
-
-cowsay "Installing other required packages !"
-conda install gensim wxpython flake8
-pip install keras
-
-cowsay "Anaconda Python has been installed and updated"
-
-cowsay "Setting up your Vim for python"
-git clone https://github.com/vim/vim.git
-cd vim/src
-vi_cv_path_python=$HOME/anaconda2/bin/python ./configure --with-features=huge --enable-pythoninterp=yes --prefix=$HOME/vim-py-ide
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp vimrc ~/.vimrc
-
-cowsay "Now Setting Vim for Python development"
-vim +PluginInstall +qall
-
-echo "\n# Adding Alias for vim setup" >> ~/.bashrc
-echo "alias pyvim=~/vim-py-ide/bin/vim" >> ~/.bashrc
-source ~/.basrc
-
-cowsay "Now you can access vim for python by calling \$pyvim"
-
-cowsay "Getting Special Package xgboost for You"
-cd dwnls
-git clone --recursive https://github.com/dmlc/xgboost
-cd xgboost; make -j4
-
-sudo apt-get install python-setuptools python-dev
-cd python-package; sudo python setup.py install
-
-cowsay "Installed XGboost for python !"
-
-cowsay "Installing R ans Rstudio Server for You !"
-cowsay "Getting R !"
-
-deb https://cran.rstudio.com/bin/linux/ubuntu trusty/
-gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E084DAB9
-gpg -a --export E084DAB9 | sudo apt-key add -
-
-sudo apt-get update
-
-cowsay "Installing R !"
-sudo apt-get install r-base r-cran-boot r-cran-class r-cran-cluster r-cran-codetools r-cran-foreign r-cran-kernsmooth r-cran-lattice  r-cran-mass r-cran-matrix r-cran-mgcv r-cran-nlme r-cran-nnet r-cran-rpart r-cran-spatial r-cran-survival r-cran-rodbc
-
-cowsay "Getting Rstudio !"
-cd dwnls
-wget https://download2.rstudio.org/rstudio-server-0.99.879-amd64.deb
-sudo gdebi rstudio-server-0.99.879-amd64.deb
-
-cowsay "Done With R and RStudio !"
-
-cowsay "Installing Xgboost Externally to R"
-
-R CMD install ~/dwnls/xgboost*/R-*/xg*.tar.gz
-
+java-setup
+python-setup
+r-setup
+xgb-setup
+vim-setup
+emacs-setup
+aliases-setup
 
 coway "I believe your whole stack has been Completed. In Case you need more please do it manually"

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+cowsay "Starting Anaconda Python Installation. Please Stay with me !"
+cd dwnls
+wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.5.0-Linux-x86_64.sh
+bash Anaconda2-2.5.0-Linux-x86_64.sh
+
+cowsay "Updating Anaconda Please stay here !"
+
+conda update conda
+conda update anaconda
+
+cowsay "Installing other required packages !"
+conda install gensim wxpython flake8 jedi
+pip install keras autopip8 yapf importmagic kivy
+
+cowsay "Anaconda Python has been installed and updated"
+cd

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: class_function_docstring
+# key: fds
+# group: definitions
+# --
+def ${1:name}(self,$2):
+    \"\"\"${3: function definition
+    ${2:$(python-args-to-docstring)}
+    return :
+    \"\"\"
+    $0	

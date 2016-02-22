@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo  >> ~/.bashrc
+echo "# Adding Alias for vim setup" >> ~/.bashrc
+echo "alias pyvim=~/vim-py-ide/bin/vim" >> ~/.bashrc
+
+cowsay "Now you can access vim for python by calling \$pyvim"
+
+echo  >> ~/.bashrc
+echo "# Adding Alias for rstudio startup" >> ~/.bashrc
+echo "alias rststart='rstudio-server start'" >> ~/.bashrc
+
+source ~/.basrc
+cowsay "Now you can access R Studio server by calling \$rststart"

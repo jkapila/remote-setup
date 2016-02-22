@@ -56,13 +56,13 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
 "multiple commenting
-"Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+"Plugin 'scrooloose/nerdcommenter'
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
 
 "Zoom In zoom out check to see if it is working or not
-"Plugin 'git@github.com:vim-scripts/ZoomWin.git'
+"Plugin 'vim-scripts/ZoomWin'
 
 "auto-completion stuff
 "Plugin 'Valloric/YouCompleteMe'
@@ -71,7 +71,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 
-"Plugin 'git@github.com:jiangmiao/auto-pairs.git'
+"Plugin 'jiangmiao/auto-pairs'
 
 "code snipping
 Plugin 'SirVer/ultisnips'
@@ -85,23 +85,37 @@ Plugin 'tacahiroy/ctrlp-funky'
 "tabs and status
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'git@github.com:fholgado/minibufexpl.vim.git'
+"Plugin 'git@github.com:fholgado/minibufexpl.vim.git'
+Plugin 'fholgado/minibufexpl.vim'
 
 "Colors!!!
 Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'git@github.com:w0ng/vim-hybrid.git'
-Plugin 'git@github.com:jonathanfilip/vim-lucius.git'
-Plugin 'git@github.com:goatslacker/mango.vim.git'
-Plugin 'git@github.com:zeis/vim-kolor.git'
 Plugin 'altercation/vim-colors-solarized'
+
+"Plugin 'git@github.com:w0ng/vim-hybrid.git'
+"Plugin 'git@github.com:jonathanfilip/vim-lucius.git'
+"Plugin 'git@github.com:goatslacker/mango.vim.git'
+"Plugin 'git@github.com:zeis/vim-kolor.git'
+
+Plugin 'w0ng/vim-hybrid.git'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'goatslacker/mango.vim'
+Plugin 'zeis/vim-kolor'
+
 
 "These colorschems dosent needs any settings eventually will add all these setting to git and make it standard
 Plugin 'jnurmine/Zenburn'
-Plugin 'git@github.com:sickill/vim-monokai.git'
-Plugin 'git@github.com:Lokaltog/vim-distinguished.git' 
-Plugin 'git@github.com:ciaranm/inkpot.git'
 Plugin 'flazz/vim-colorschemes'
+
+"Plugin 'git@github.com:sickill/vim-monokai.git'
+"Plugin 'git@github.com:Lokaltog/vim-distinguished.git' 
+"Plugin 'git@github.com:ciaranm/inkpot.git'
+
+Plugin 'sickill/vim-monokai'
+Plugin 'Lokaltog/vim-distinguished' 
+Plugin 'ciaranm/inkpot'
+
 
 call vundle#end()
 
