@@ -6,13 +6,18 @@ wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackc
 bash Anaconda2-2.5.0-Linux-x86_64.sh
 
 cowsay "Updating Anaconda Please stay here !"
+source ~/.bashrc
 
 conda update conda
 conda update anaconda
 
 cowsay "Installing other required packages !"
 conda install gensim wxpython flake8 jedi
-pip install keras autopip8 yapf importmagic kivy
+pip install keras autopep8 yapf importmagic
+
+#if required for future
+#pip install kivy
 
 cowsay "Anaconda Python has been installed and updated"
 cd
+

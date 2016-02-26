@@ -1,29 +1,35 @@
 #!/usr/bin/env bash
 #Emacs Setup
 
-cd dwnls
 cowsay "Installing Dependencies for Emacs"
 sudo apt-get install libxpm-dev libjpeg-dev libgif-dev libtiff4-dev texinfo libgtk2.0-dev
 wget http://downloads.sourceforge.net/project/libpng/libpng16/1.6.21/libpng-1.6.21.tar.gz
 tar -xvf libpng-1.6.21.tar.gz
 cd libpng-1.6.21
 ./configure && make check && sudo make install && sudo ldconfig
-cd
+cd ..
 
 cowsay "Installing emacs"
-cd dwls
+
 wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz
 tar -xvf emacs-24.5.tar.gz
 make
 cd emacs-24.5
 ./configure --with-x-toolkit='gtk'
-make
-src/emacs -Q
-sudo make install && make clean && make distclean
+make && sudo make install && make clean && make distclean
 sudo update-alternatives --config emacs
-cd
+cd ..
 
 cowsay "Copying basic stuff and getting emacs ready for you"
-cp remote-setup/emacs ~/.emacs.d
+mkdir ~/.emacs.d
+mv ~/remote-setup/emacs/* ~/.emacs.d/
+git clone https://github.com/emacs-helm/helm.git ~/.emacs.d/helm
+cd ~/.emacs.d/helm && make
+#these are brute ways dont like them bt no options:(
+#mkdir ~/.emacs.d/ex-packages && cd ~/.emacs.d/ex-packages
+#git clone git@github.com:bbatsov/projectile.git 
+#git clone git@github.com:ShingoFukuyama/helm-swoop.git 
+cd ~/remote-setup
+
 
 cowsay "Now you can run emacs. Happy Programming"

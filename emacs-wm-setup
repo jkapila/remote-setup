@@ -5,5 +5,5 @@ sudo apt-get install xinit
 touch ~/.xinitrc
 echo exec emacs >> ~/.xinitrc
 echo  >> ~/.emacs.d/init.el
-echo "#making emacs windows manager" >> ~/.emacs.d/init.el
-echo (set-frame-parameter nil 'fullscreen 'fullboth) >> ~/.emacs.d/init.el
+echo ";; making emacs windows manager" >> ~/.emacs.d/init.el
+echo (set-frame-parameter nil \'fullscreen \'fullboth) >> ~/.emacs.d/init.el

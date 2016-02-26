@@ -3,7 +3,7 @@
 cowsay "Installing R ans Rstudio Server for You !"
 cowsay "Getting R !"
 
-deb https://cran.rstudio.com/bin/linux/ubuntu trusty/
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
 gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
 
@@ -12,8 +12,10 @@ sudo apt-get update
 cowsay "Installing R !"
 sudo apt-get install r-base r-cran-boot r-cran-class r-cran-cluster r-cran-codetools r-cran-foreign r-cran-kernsmooth r-cran-lattice  r-cran-mass r-cran-matrix r-cran-mgcv r-cran-nlme r-cran-nnet r-cran-rpart r-cran-spatial r-cran-survival r-cran-rodbc
 
+sudo su - -c "R -e \"install.packages('devtools', repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"devtools::install_github('daattali/shinyjs')\""
+
 cowsay "Getting Rstudio !"
-cd dwnls
 wget https://download2.rstudio.org/rstudio-server-0.99.879-amd64.deb
 sudo gdebi rstudio-server-0.99.879-amd64.deb
 

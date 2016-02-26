@@ -28,5 +28,5 @@ cd
 
 cowsay "setting tmux conf file and tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-cp remote-setup/tmux ~/.tmux.conf
+cp ~/remote-setup/tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf

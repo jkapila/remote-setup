@@ -8,7 +8,19 @@ cowsay "Now you can access vim for python by calling \$pyvim"
 
 echo  >> ~/.bashrc
 echo "# Adding Alias for rstudio startup" >> ~/.bashrc
-echo "alias rststart='rstudio-server start'" >> ~/.bashrc
+echo alias rststart=\'sudo start rstudio-server\' >> ~/.bashrc
 
-source ~/.basrc
+#need to find solution for to automatically add sudo to anaconda python
+cowsay "Now to make sudo read anaconda python making alias spy"
+spy=$(which python)
+
+echo  >> ~/.bashrc
+echo "# Adding Alias for sudo anaconda installation" >> ~/.bashrc
+echo alias spy=\'sudo $spy\' >> ~/.bashrc
+
+echo  >> ~/.bashrc
+echo "# Adding Alias for terminal emancs" >> ~/.bashrc
+echo alias emt=\'TERM=xterm-256color emacs -nw\' >> ~/.bashrc
+ 
+source ~/.bashrc
 cowsay "Now you can access R Studio server by calling \$rststart"

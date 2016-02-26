@@ -19,14 +19,41 @@ sudo apt-get install cowsay gdebi-core language-pack-en-base build-essential
 #Just to make sure locale settings are proper
 sudo dpkg-reconfigure locales 
 
+sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev nginx
+
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:nginx/stable
+sudo apt-get update
+sudo apt-get upgrade nginx
+
 mkdir ~/dwnls
 
-java-setup
-python-setup
-r-setup
-xgb-setup
-vim-setup
-emacs-setup
-aliases-setup
+./java-setup
+./python-setup
+cd remote-setup
+./r-setup
+cd remote-setup
+./xgb-setup
+cd remote-setup
+./vim-setup
+cd remote-setup
+./emacs-setup
+cd remote-setup
+./aliases-setup
+
+# make own nginx configuration for hosting vim emacs ipython and of course R studio and Shiny server
+cowsay "Now you need to setup ngix with this just copy paste this after server_name localhost;
+        location /rstudio/ {
+           proxy_pass http://127.0.0.1:8787/;
+           proxy_http_version 1.1;
+           proxy_set_header Upgrade $http_upgrade;
+           proxy_set_header Connection "upgrade";
+
+        }
+	Sorry you have to do this manually as of now! opening vim for you !"
+
+sudo vim /etc/nginx/sites-enabled/default
+
+
 
 coway "I believe your whole stack has been Completed. In Case you need more please do it manually"
